@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Transfer Money</title>
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header class="header">
+
+   <a href="#" class="logo"> <img src="images/sparklogo.png" alt=""> The Spark Bank </a>
+
+   <nav class="navbar">
+      <div id="close-navbar" class="fas fa-times"></div>
+      <a href="home.html">home</a>
+      <a href="transfermoney.html">Transfer Money</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+   </nav>
+
+   <div class="icons">
+      <div id="account-btn" class="fas fa-user"></div>
+      <div id="menu-btn" class="fas fa-bars"></div>
+   </div>
+
+</header>
+
+<!-- account form section starts  -->
+
+<div class="account-form">
+
+   <div id="close-form" class="fas fa-times"></div>
+
+   <div class="buttons">
+      <span class="btn active login-btn">login</span>
+      <span class="btn register-btn">register</span>
+   </div>
+
+   <form class="login-form active" action="">
+      <h3>login now</h3>
+      <input type="email" placeholder="enter your email" class="box">
+      <input type="password" placeholder="enter your password" class="box">
+      <div class="flex">
+         <input type="checkbox" name="" id="remember-me">
+         <label for="remember-me">remember me</label>
+         <a href="#">forgot password?</a>
+      </div>
+      <input type="submit" value="login now" class="btn">
+   </form>
+
+   <form class="register-form" action="">
+      <h3>register now</h3>
+      <input type="email" placeholder="enter your email" class="box">
+      <input type="password" placeholder="enter your password" class="box">
+      <input type="password" placeholder="confirm your password" class="box">
+      <input type="submit" value="register now" class="btn">
+   </form>
+
+</div>
+
+<!-- account form section ends -->
+
+<!-- header section ends -->
+
+<section class="heading-link">
+   <h3>Transfer Money</h3>
+   <p> <a href="home.html">Home</a> / Transfer Money </p>
+</section>
+
+
+<section class="customer" >
+   <div class="my-info text-center">
+        <h2 style="font-size: 5rem;">Name :- Anurag Dubey</h2>
+        <h4 style="font-size: 3rem;">Net Bank Balance:- $<span id="myAccountBalance">15000</span></h4>
+
+        <button class="btn btn-success" data-toggle="modal" data-target="#sendMoney" style="font-size: 2rem;border: solid 2px #0eb582; border-radius: 5px;">Send Money</button>
+        <a class="btn btn-success" href="" data-toggle="modal" data-target="#transactionHistory" style="font-size: 2rem; border: solid 2px #0eb582; border-radius: 5px; margin-left: 3rem;">See All Transactions</a>
+   </div>
+
+   <!-- Modal send money -->
+   <div class="modal fade" id="sendMoney" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-size: 4rem;">Send Money</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="font-size: 3rem;">
+                    <form action="" style="font-size: 3rem;">
+                        <div class="input-group mb-3"style="font-size: 3rem;">
+                            <input type="text" id="enterName" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" style="font-size: 3rem;">
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="basic-addon2" style="font-size: 3rem;">@email.com</span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3" style="font-size: 3rem;">
+                            <div class="input-group-prepend" style="font-size: 3rem;">
+                                <span class="input-group-text" style="font-size: 3rem;">$</span>
+                            </div>
+                            <input type="text" id="enterAmount" class="form-control" placeholder=" Enter Amount" aria-label="Amount (to the nearest dollar)" style="font-size: 3rem;">
+                            <div class="input-group-append" style="font-size: 3rem;">
+                                <span class="input-group-text" style="font-size: 3rem;">.00</span>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-size: 2rem;">Close</button>
+                    <button type="button" onclick="sendMoney()" class="btn btn-success" data-dismiss="modal" style="font-size: 2rem;">Send Money</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal transaction History-->
+    <div class="modal fade" id="transactionHistory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-size: 4rem;">Transaction History</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="font-size: 2rem;">
+                    <ol id="transaction-history-body">
+
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" style="font-size: 2rem;">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   </br>
+   </br>
+
+    <!-- table  -->
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered" style="font-size: 2rem;">
+                <thead>
+                    <tr class="table" style="font-size: 2rem; background-color: #a6d1ee;">
+                        <th scope="col" style="font-size: 3rem;">Sl. No.</th>
+                        <th scope="col" style="font-size: 3rem;">Name</th>
+                        <th scope="col" style="font-size: 3rem;">E-mail</th>
+                        <th scope="col" style="font-size: 3rem;">Bank Balance(in $)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table" style="background-color:#b4e2d7 ;">
+                        <td scope="row">1</td>
+                        <td>Arjun</td>
+                        <td>arjun@email.com</td>
+                        <td>
+                            <p id="arjunBankBalance">4500</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#f0fdfa ;">
+                        <td scope="row">2</td>
+                        <td>Suresh </td>
+                        <td>suresh@email.com</td>
+                        <td>
+                            <p id="sureshBankBalance">24000</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#b4e2d7 ;">
+                        <td scope="row">3</td>
+                        <td>Abhi</td>
+                        <td>abhi@email.com</td>
+                        <td>
+                            <p id="abhiBankBalance">9400</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#f0fdfa ;">
+                        <td scope="row">4</td>
+                        <td>Ramesh</td>
+                        <td>ramesh@email.com</td>
+                        <td>
+                            <p id="rameshBankBalance">6000</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#b4e2d7 ;">
+                        <td scope="row">5</td>
+                        <td>Hari</td>
+                        <td>hari@email.com</td>
+                        <td>
+                            <p id="hariBankBalance">11300</p>
+                        </td>
+                    </tr>
+                    <tr class="table"  style="background-color:#f0fdfa ;">
+                        <td scope="row">6</td>
+                        <td>Venky</td>
+                        <td>venky@email.com</td>
+                        <td>
+                            <p id="venkyBankBalance">5050</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#b4e2d7 ;">
+                        <td>7</td>
+                        <td>Sunil</td>
+                        <td>sunil@email.com</td>
+                        <td>
+                            <p id="sunilBankBalance">7600</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#f0fdfa ;">
+                        <td scope="row">8</td>
+                        <td>Sameer</td>
+                        <td>sameer@email.com</td>
+                        <td>
+                            <p id="sameerBankBalance">5600</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#b4e2d7 ;">
+                        <td scope="row">9</td>
+                        <td>Mahesh</td>
+                        <td>mahesh@email.com</td>
+                        <td>
+                            <p id="maheshBankBalance">11500</p>
+                        </td>
+                    </tr>
+                    <tr class="table" style="background-color:#f0fdfa ;">
+                        <td scope="row">10</td>
+                        <td>Ramu</td>
+                        <td>ramu@email.com</td>
+                        <td>
+                            <p id="ramuBankBalance">5600</p>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<!-- footer section starts <i class="fas fa-lightbulb"></i> -->
+
+<section class="footer">
+
+   <div class="box-container">
+
+      <div class="box">
+         <h3> <img src="images/sparklogo.png" style="height:80px; width: 100px;" alt="">
+         </br>  The Spark Bank</h3>
+         <p>THE HANGAR, NUS ENTERPRISE 21, SINGAPORE, 119613</p>
+         <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+         </div>
+      </div>
+
+      <div class="box">
+         <h3>Explore</h3>
+         <a href="administration.html" class="link">Investor Relations</a>
+         <a href="department.html" class="link">Safe Banking</a>
+         <a href="Studentcorner.html" class="link">RBI Kehta Hai</a>
+         <a href="about.html" class="link">Internet Banking</a>
+         <a href="contact.html" class="link">Mobile Banking</a>
+      </div>
+
+      <div class="box">
+         <h3>Popular Product</h3>
+         <a href="#" class="link">Home & Car Loan</a>
+         <a href="#" class="link">Health & Auto Insurance</a>
+         <a href="#" class="link">Credit & Debit Card</a>
+         <a href="#" class="link">Recurring DEposits</a>
+         <a href="#" class="link">Pension Schemes</a>
+      </div>
+
+      <div class="box">
+         <h3>newsletter</h3>
+         <p>subscribe for latest upadates</p>
+         <form action="">
+            <input type="email" name="" placeholder="enter your email" id="" class="email" style="font-size: 2rem;border: solid 2px #0eb582; border-radius: 5px;">
+            <input type="submit" value="subscribe" class="btn" style="font-size: 2rem;border: solid 2px #0eb582; border-radius: 5px;">
+         </form>
+      </div>
+
+   </div>
+
+   <div class="credit"> created by <span>Mr. Anurag Dubey</span> | All rights reserved! </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+<!-- swiper js link  -->
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+
+</body>
+</html>
